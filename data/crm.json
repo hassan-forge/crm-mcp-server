@@ -1,0 +1,19 @@
+{
+  "contacts": [
+    {"id": "C-101", "name": "Dana Whitfield", "email": "dana@brightlane.io", "phone": "+1 415 555 0134", "company": "Brightlane", "owner": "sara"},
+    {"id": "C-102", "name": "Omar Haddad", "email": "omar@corvusfreight.com", "phone": "+1 312 555 0188", "company": "Corvus Freight", "owner": "sara"},
+    {"id": "C-103", "name": "Lena Brooks", "email": "lena.brooks@meadowdental.com", "phone": "+44 20 7946 0321", "company": "Meadow Dental", "owner": "james"},
+    {"id": "C-104", "name": "Ravi Patel", "email": "ravi@northpeak.ai", "phone": "+1 646 555 0172", "company": "Northpeak AI", "owner": "james"}
+  ],
+  "deals": [
+    {"id": "D-201", "contactId": "C-101", "title": "Brightlane support automation", "amount": 18000, "stage": "proposal", "updatedAt": "2026-11-10T09:00:00Z"},
+    {"id": "D-202", "contactId": "C-102", "title": "Corvus dispatch assistant", "amount": 64000, "stage": "qualified", "updatedAt": "2026-11-12T14:30:00Z"},
+    {"id": "D-203", "contactId": "C-103", "title": "Meadow Dental booking bot", "amount": 7500, "stage": "lead", "updatedAt": "2026-11-15T11:15:00Z"},
+    {"id": "D-204", "contactId": "C-104", "title": "Northpeak RAG pilot", "amount": 22000, "stage": "qualified", "updatedAt": "2026-11-18T16:45:00Z"}
+  ],
+  "notes": [
+    {"id": "N-1001", "contactId": "C-101", "body": "Wants answers grounded in their help center. Asked about Slack integration.", "author": "sara", "createdAt": "2026-11-09T10:00:00Z"},
+    {"id": "N-1002", "contactId": "C-102", "body": "Dispatchers spend ~3h/day re-keying loads from email. Budget approved for Q1.", "author": "sara", "createdAt": "2026-11-12T15:00:00Z"},
+    {"id": "N-1003", "contactId": "C-104", "body": "Security review needed before any production data is used.", "author": "james", "createdAt": "2026-11-18T17:00:00Z"}
+  ]
+}
