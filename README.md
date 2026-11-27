@@ -20,6 +20,31 @@ Claude: Two qualified deals over $20k: Corvus dispatch assistant ($64,000) and N
         and budget is approved for Q1.
 ```
 
+## Web console
+
+The repo also includes a **Next.js console** in `web/`. It starts the server as a child process and talks to it over stdio, exactly the way Claude Desktop does, so everything you see goes through the real protocol, policy and audit log.
+
+- See which tools the AI is allowed to see under the current policy, and call any of them from a form
+- Switch between read-only and read-write, or allow closing deals, and restart the server with that policy
+- Watch the deal pipeline change when a write succeeds
+- Read the audit log, with refused calls and the reason for each
+
+![MCP console: a small deal is moved, a large one is refused by policy and logged](docs/console.png)
+
+```bash
+npm install && npm run build   # build the MCP server first
+cd web
+npm install
+npm run dev                    # http://localhost:3000
+```
+
+Or with Docker, from the repository root:
+
+```bash
+docker build -f web/Dockerfile -t crm-mcp-console .
+docker run -p 3000:3000 crm-mcp-console
+```
+
 ## Tools
 
 | Tool | Type | What it does |
@@ -102,6 +127,10 @@ src/
   audit.ts    audit log (memory + optional JSONL file)
 test/
   server.test.ts  19 tests through a real MCP client over an in-memory transport
+web/
+  lib/mcp.ts      MCP client: spawns the server over stdio, lists and calls tools
+  app/api/        route handlers for the session, tool calls and the audit log
+  app/page.tsx    the console UI
 ```
 
 ## Development
@@ -113,7 +142,7 @@ npm run typecheck
 npm run dev        # run from source with tsx
 ```
 
-CI runs the type check, tests and build on Node 20 and 22.
+CI runs the type check, tests and build on Node 20 and 22, and type-checks and builds the web console.
 
 ## License
 
